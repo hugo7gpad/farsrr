@@ -1,0 +1,109 @@
+---
+title: "Introduction-to-farsrr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction-to-farsrr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(farsrr)
+```
+
+
+The goal of farsr is to offer tools to report and analyse accidents
+reports over years.The farsr package provides functions to read,
+summarize and visualize data on accidents recorded by time, date,
+geographical information such as: city, state, longitude, latitude… and
+more.
+
+You can download and install the development version of farsr using:
+
+  devtools::install_github("hugo7gpad/farsr", build_vignettes = TRUE)
+
+
+The following functions: make_filename(), fars_read(), fars_read_years(),
+fars_summarize_years() and fars_map_state() will be exported once the package is installed.  The 'farsr' requires the installation of
+'dplyr', 'tidyr', 'magrittr', 'maps', 'readr', 'tibble' and 'graphics' packages.
+An example of data from The US NHTSA Fatality Analysis Reporting System is
+included to showcase these functions.
+
+The make_filename() function takes a numeric argument year to create a file name in a specific format for the file that contains all accidents and  related informations reported in a given year.
+
+It can be used in the following way:
+
+```{r make_filename, echo=TRUE}
+make_filename(201)
+make_filename(2022)
+make_filename(2015)
+```
+
+
+
+The fars_read() function takes a string argument filename and reads its file into R as tibble.
+
+It works like this:
+
+```{r fars_read, echo=TRUE}
+
+```
+
+
+
+A list or numeric vector years is the argument to supply to the function fars_read_years(). For each number year in the argument years, a file name is created. fars_read_years() returns a two columns tibble: MONTH, year for each
+`year` by adding a new column (year) to the file of that year and selecting the columns MONTH, year. It will return a list of these 2 columns tibbles.
+
+Let's try it!
+
+```{r fars_read_years, echo=TRUE}
+yrs2 <- c(2014, 2015)
+yrs3 <- c(2013, 2014, 2015)
+
+fars_read_years(2015)
+fars_read_years(yrs3)
+fars_read_years(yrs2)
+```
+
+
+
+fars_summarize_years() takes the same argument as fars_read_years(). Its combines all the rows of the list of 2 columns tibbles returned by fars_read_years(). It regroups and summarizes the result to return a new 12 rows tibbles, summary of the numbers of accidents in each month of each element of the `years`.argument supplied.
+
+Examples
+
+```{r fars_summarize_years, echo=TRUE}
+yrs2 <- c(2014, 2015)
+yrs3 <- c(2013, 2014, 2015)
+
+
+```
+
+
+
+Two numeric arguments(one for state number, the other for year) must be supplied to fars_map_state(). The file associated with the year argument is substted using STATE == state.num . This new data frame is used to draw a map of a region in a state with locations where accidents occured in that region.
+
+```{r fars_map_state, echo=TRUE}
+
+```
+
+
+In pratical terms, to find how many accidents were reported in every month in the years 2013, 2014, 2015 to the US NHTSA F.A.R.S.' you can run the following R scripts:
+
+```{r probleme, echo=TRUE}
+## Accidents reported to the US NHTSA F.A.R.S in 2013, 2014, 2015
+
+
+# View 2 columns MONTH, year data for each year
+
+
+# Number of accidents in every month of each year
+
+
+
