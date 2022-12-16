@@ -1,7 +1,3 @@
-test_that("missing argument", {
-  expect_error(fars_read_years())
-})
-
 test_that("invalid year", {
   expect_error(fars_read("accident_20155.csv.bz2"))
 })

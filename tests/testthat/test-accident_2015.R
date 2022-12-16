@@ -1,3 +1,7 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("number of columns", {
+  expect_equal(ncol(accident_2015.csv.bz2), as.integer(52))
+})
+
+test_that("number of rows", {
+  expect_equal(nrow(accident_2015.csv.bz2), as.integer(32166))
 })

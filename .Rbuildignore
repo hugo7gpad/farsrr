@@ -2,3 +2,6 @@
 ^LICENSE\.md$
 ^farsrr\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
+^\.travis\.yml$
+^\.github$
