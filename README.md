@@ -4,6 +4,10 @@
 # farsrr
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/hugo7gpad/farsrr.svg?branch=main)](https://travis-ci.com/hugo7gpad/farsrr)
+[![R-CMD-check](https://github.com/hugo7gpad/farsrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hugo7gpad/farsrr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of farsrr is to offer tools to report and analyse accidents
