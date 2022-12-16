@@ -1,0 +1,36 @@
+Package: farsrr
+Title: Read, Analyse, Summarize and Visualize Accidents Reports Data
+Version: 0.0.0.9000
+Authors@R: 
+    person("Hugo", "Nomanyon", , "hugostar84@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: The farsrr package provides functions to read, summarize and 
+    visualize data on accidents recorded by time, date, geographical information
+    such as: city, State, longitude, latitude... and more. The fars_read() 
+    function read such type of data into R as tibble. The function make_filename()
+    creates annual accidents reports file name in a specified format.
+    fars_read_years() extract all rows in the file of each year in a list or
+    numerical vector years and returns a list of 2 columns tibbles for each year.
+    The fars_summarize_years() gives summary of numbers of accidents in each month
+    of each year in a numeric vector of years. Finally, fars_map_state() draw a 
+    map of a region in a state with locations where accidents occurred in a given
+    year. A data from US National Highway Traffic Safety Administration Fatality
+    Analysis Reporting System is included to illustrate how to use these functions.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.2
+Imports: 
+    dplyr,
+    graphics,
+    magrittr,
+    maps,
+    readr,
+    tibble,
+    tidyr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+LazyData: true
