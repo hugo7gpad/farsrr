@@ -32,6 +32,7 @@ data of the year 2014 into R :
 
 ``` r
 library(farsrr)
+# fars_read(make_filename(2015))
 ```
 
 Let’s find how many accidents are reported to the US NHTSA F.A.R.S’ each
@@ -42,9 +43,10 @@ month of the following years: 2013, 2014, 2015:
 yrs <- c(2013, 2014, 2015)
 
 # View 2 columns MONTH, year data for each year in the list (2013, 2014, 2015)
-
+# fars_read_years(yrs)
 
 # Number of accidents in every month of each year in the list (2013, 2014, 2015)
+# fars_summarize_years(yrs)
 ```
 
 Points in the following map represent locations where accidents were
