@@ -16,6 +16,22 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(farsrr)
+```
+
+
+The goal of farsr is to offer tools to report and analyse accidents
+reports over years.The farsr package provides functions to read,
+summarize and visualize data on accidents recorded by time, date,
+geographical information such as: city, state, longitude, latitude… and
+more.
+
+You can download and install the development version of farsr using:
+
+  devtools::install_github("hugo7gpad/farsr", build_vignettes = TRUE)
+
+You can also download the example data included using in the following way:
+
+```{r download data}
 make_filename(2013)
 make_filename(2014)
 make_filename(2015)
@@ -29,17 +45,6 @@ accident_2015_csv <- suppressMessages(readr::read_csv(system.file("extdata",
                                                   "accident_2015.csv.bz2", package = "farsrr")))
 readr::write_csv(accident_2015_csv, "accident_2015.csv.bz2")
 ```
-
-
-The goal of farsr is to offer tools to report and analyse accidents
-reports over years.The farsr package provides functions to read,
-summarize and visualize data on accidents recorded by time, date,
-geographical information such as: city, state, longitude, latitude… and
-more.
-
-You can download and install the development version of farsr using:
-
-  devtools::install_github("hugo7gpad/farsr", build_vignettes = TRUE)
 
 
 The following functions: make_filename(), fars_read(), fars_read_years(),
