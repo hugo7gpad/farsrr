@@ -40,26 +40,40 @@ This is a basic example which shows you how to read the accident report data of 
 
 ```{r example}
 library(farsrr)
-# fars_read(make_filename(2015))
+make_filename(2013)
+make_filename(2014)
+make_filename(2015)
+accident_2013_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2013.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2013_csv, "accident_2013.csv.bz2")
+accident_2014_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2014.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2014_csv, "accident_2014.csv.bz2")
+accident_2015_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2015.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2015_csv, "accident_2015.csv.bz2")
+
+fars_read("accident_2013.csv.bz2")
 ```
 
 Let's find how many accidents are reported to the US NHTSA F.A.R.S' each month
 of the following years: 2013, 2014, 2015:
 
 ```{r accidents_years_2013_2014_2015, echo=TRUE}
+
 ## Accidents reported to the US NHTSA F.A.R.S in 2013, 2014, 2015
 yrs <- c(2013, 2014, 2015)
 
 # View 2 columns MONTH, year data for each year in the list (2013, 2014, 2015)
-# fars_read_years(yrs)
+fars_read_years(yrs)
 
 # Number of accidents in every month of each year in the list (2013, 2014, 2015)
-# fars_summarize_years(yrs)
+fars_summarize_years(yrs)
 ```
 
 Points in the following map represent locations where accidents were reported
 in the state number 33 (New York) in the year 2014
 
 ```{r map_accidents_2014_state33_NY, echo = FALSE}
-# fars_map_state(33, 2014)
+fars_map_state(33, 2014)
 ```

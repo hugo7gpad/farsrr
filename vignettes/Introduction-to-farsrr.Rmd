@@ -16,6 +16,18 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(farsrr)
+make_filename(2013)
+make_filename(2014)
+make_filename(2015)
+accident_2013_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2013.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2013_csv, "accident_2013.csv.bz2")
+accident_2014_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2014.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2014_csv, "accident_2014.csv.bz2")
+accident_2015_csv <- suppressMessages(readr::read_csv(system.file("extdata", 
+                                                  "accident_2015.csv.bz2", package = "farsrr")))
+readr::write_csv(accident_2015_csv, "accident_2015.csv.bz2")
 ```
 
 
@@ -53,9 +65,11 @@ The fars_read() function takes a string argument filename and reads its file int
 It works like this:
 
 ```{r fars_read, echo=TRUE}
-# fars_read("accident_2014.csv.bz2")
-# fars_read(make_filename(2013))
-# fars_read(make_filename(2015))
+fars_read("accident_2014.csv.bz2")
+
+fars_read(make_filename(2013))
+
+fars_read(make_filename(2015))
 ```
 
 
@@ -69,9 +83,11 @@ Let's try it!
 yrs2 <- c(2014, 2015)
 yrs3 <- c(2013, 2014, 2015)
 
-# fars_read_years(2015)
-# fars_read_years(yrs3)
-# fars_read_years(yrs2)
+fars_read_years(2015)
+
+fars_read_years(yrs3)
+
+fars_read_years(yrs2)
 ```
 
 
@@ -84,9 +100,11 @@ Examples
 yrs2 <- c(2014, 2015)
 yrs3 <- c(2013, 2014, 2015)
 
-# fars_summarize_years(2015)
-# fars_summarize_years(yrs3)
-# fars_summarize_years(yrs2)
+fars_summarize_years(2015)
+
+fars_summarize_years(yrs3)
+
+fars_summarize_years(yrs2)
 ```
 
 
@@ -94,9 +112,11 @@ yrs3 <- c(2013, 2014, 2015)
 Two numeric arguments(one for state number, the other for year) must be supplied to fars_map_state(). The file associated with the year argument is substted using STATE == state.num . This new data frame is used to draw a map of a region in a state with locations where accidents occured in that region.
 
 ```{r fars_map_state, echo=TRUE}
-# fars_map_state(50, 2015)
-# fars_map_state(37, 2013)
-# fars_map_state(28, 2014)
+fars_map_state(50, 2015)
+
+fars_map_state(37, 2013)
+
+fars_map_state(28, 2014)
 ```
 
 
@@ -107,9 +127,9 @@ In pratical terms, to find how many accidents were reported in every month in th
 yrs3 <- c(2013, 2014, 2015)
 
 # View 2 columns MONTH, year data for each year
-# fars_read_years(yrs3)
+fars_read_years(yrs3)
 
 # Number of accidents in every month of each year
-# fars_summarize_years(yrs3)
+fars_summarize_years(yrs3)
 
 
